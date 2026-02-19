@@ -231,15 +231,21 @@
                 <p>LoRa e făcut pentru <strong>distanță și economie de energie</strong>, nu pentru viteză. Transmite foarte puține date pe secundă – echivalentul a câtorva propoziții, nu al unui film.</p>
                 <p><strong>Potrivit pentru:</strong> mesaje text scurte, poziție pe hartă, citiri de senzori (temperatură, alerte).</p>
                 <p><strong>Nu e pentru:</strong> poze, video, apeluri voce sau fișiere mari.</p>
-                <h3 class="slide__subtitle">2. Mesaje mici și nu foarte des</h3>
-                <p>Un singur „pachet” poate conține doar câteva zeci sau sute de caractere. Plus, legea limitează cât timp poate sta dispozitivul „cu microfonul deschis” – deci nu poți bombarda continuu; ideal e câte un mesaj la câteva minute.</p>
-<!--                <h3 class="slide__subtitle">3. Depinde de teren și obstacole</h3>-->
-<!--                <ul>-->
-<!--                  <li><strong>În oraș</strong> (blocuri, clădiri): 1–3 km între noduri</li>-->
-<!--                  <li><strong>La câmp</strong> (deschis): 10–20 km</li>-->
-<!--                  <li><strong>Deal la deal</strong> (cu vizibilitate bună): 30+ km</li>-->
-<!--                </ul>-->
-                <h3 class="slide__subtitle">3. Planificare pentru acoperire bună</h3>
+                <h3 class="slide__subtitle">2. Pachete mici: limită în bytes</h3>
+                <p>LoRa e făcut pentru <strong>pachete foarte mici și rare</strong>, nu pentru streaming. Capacitatea se măsoară în <strong>bytes per pachet</strong>, limitată de fizica semnalului și de reglementări.</p>
+                <ul>
+                  <li><strong>Maxim absolut</strong> (chip): 255 bytes per pachet.</li>
+                  <li><strong>LoRaWAN (EU)</strong>: payload util între <strong>51 bytes</strong> (viteză mică) și <strong>222 bytes</strong> (viteză mai mare) – adică ~408–1776 biți per mesaj.</li>
+                  <li><strong>Recomandare universală</strong>: 17–33 bytes per pachet pentru funcționare sigură în orice condiții.</li>
+                </ul>
+                <p>Influență: <strong>Spreading Factor (SF)</strong> mai mare = rază mai mare, dar viteză și payload mai mici; <strong>Data Rate / ADR</strong> adaptează payload-ul la calitatea semnalului. LoRa e ideal pentru date de senzori (temperatură, GPS, umiditate) – câțiva bytes per mesaj.</p>
+                <h3 class="slide__subtitle">3. Depinde de teren și obstacole</h3>
+                <ul>
+                  <li><strong>În oraș</strong> (blocuri, clădiri): 1–3 km între noduri</li>
+                  <li><strong>La câmp</strong> (deschis): 10–20 km</li>
+                  <li><strong>Deal la deal</strong> (cu vizibilitate bună): 30+ km</li>
+                </ul>
+                <h3 class="slide__subtitle">4. Planificare pentru acoperire bună</h3>
                 <p>Pentru rezultate bune, nodurile trebuie plasate strategic (cât mai sus, antene de calitate) și, unde e nevoie, repeatere (noduri care doar retransmit) ca să nu rămână zone fără semnal.</p>
                 <figure class="slide__figure">
                   <img src="assets/images/lora_slide08_limitations.png" alt="Limitări LoRa">
