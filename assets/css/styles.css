@@ -133,6 +133,48 @@ body {
   color: var(--accent) !important;
 }
 
+/* Burger button: ascuns pe desktop */
+.page-nav__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background: var(--card-bg);
+  color: var(--text-main);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.page-nav__burger:hover,
+.page-nav__burger:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.page-nav__burger-line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.page-nav__burger[aria-expanded="true"] .page-nav__burger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.page-nav__burger[aria-expanded="true"] .page-nav__burger-line:nth-child(2) {
+  opacity: 0;
+}
+.page-nav__burger[aria-expanded="true"] .page-nav__burger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 /* ---- Cube stage: un slide la dimensiune întreagă + flip între fețe ---- */
 .cube-stage {
   position: relative;
@@ -425,15 +467,64 @@ a:hover {
     padding-inline: 10px;
   }
 
-  .slide {
-    margin-inline: 0;
-    border-radius: 14px;
+  .page-header {
+    margin-bottom: 16px;
+  }
+
+  .page-header__subtitle {
+    display: none;
+  }
+
+  .page-nav {
+    margin-top: 12px;
+    position: relative;
+  }
+
+  .page-nav__burger {
+    display: flex;
   }
 
   .page-nav__list {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 4px;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 60px 24px 24px;
+    margin: 0;
+    list-style: none;
+    background: rgba(2, 6, 23, 0.98);
+    backdrop-filter: blur(12px);
+    overflow-y: auto;
+  }
+
+  .page-nav--open .page-nav__list {
+    display: flex;
+  }
+
+  body.page-nav--open {
+    overflow: hidden;
+  }
+
+  .page-nav__list a {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  .slide {
+    margin-inline: 0;
+    border-radius: 14px;
   }
 }
 

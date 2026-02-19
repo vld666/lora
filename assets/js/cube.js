@@ -89,13 +89,43 @@
   if (prevBtn) prevBtn.addEventListener("click", prev);
   if (nextBtn) nextBtn.addEventListener("click", next);
 
+  var nav = navList ? navList.closest(".page-nav") : null;
+  var navBurger = document.getElementById("nav-burger");
+
+  function closeNavMenu() {
+    if (nav) nav.classList.remove("page-nav--open");
+    document.body.classList.remove("page-nav--open");
+    if (navBurger) navBurger.setAttribute("aria-expanded", "false");
+  }
+
+  function openNavMenu() {
+    if (nav) nav.classList.add("page-nav--open");
+    document.body.classList.add("page-nav--open");
+    if (navBurger) navBurger.setAttribute("aria-expanded", "true");
+  }
+
+  function toggleNavMenu() {
+    var isOpen = nav && nav.classList.contains("page-nav--open");
+    if (isOpen) closeNavMenu();
+    else openNavMenu();
+  }
+
+  if (navBurger) {
+    navBurger.addEventListener("click", toggleNavMenu);
+  }
+
   if (navList) {
     navList.addEventListener("click", function (e) {
       var link = e.target.closest(".page-nav__link[data-slide]");
+      if (e.target === navList) {
+        closeNavMenu();
+        return;
+      }
       if (!link) return;
       e.preventDefault();
       var slide = parseInt(link.getAttribute("data-slide"), 10);
       if (!isNaN(slide)) goTo(slide);
+      closeNavMenu();
     });
   }
 
