@@ -17,261 +17,289 @@
           de ce este utilă pentru companie.
         </p>
         <nav class="page-nav" aria-label="Cuprins">
-          <ul class="page-nav__list">
-            <li><a href="#slide-1">Ce este LoRa</a></li>
-            <li><a href="#slide-2">Ce NU este</a></li>
-            <li><a href="#slide-3">Cum funcționează</a></li>
-            <li><a href="#slide-4">Tipuri de rețea</a></li>
-            <li><a href="#slide-5">Descoperire noduri</a></li>
-            <li><a href="#slide-6">Tehnic</a></li>
-            <li><a href="#slide-7">Avantaje</a></li>
-            <li><a href="#slide-8">Limitări</a></li>
+          <ul class="page-nav__list" id="nav-list">
+            <li><a href="#1" data-slide="0" class="page-nav__link">Ce este LoRa</a></li>
+            <li><a href="#2" data-slide="1" class="page-nav__link">Ce NU este</a></li>
+            <li><a href="#3" data-slide="2" class="page-nav__link">Cum funcționează</a></li>
+            <li><a href="#4" data-slide="3" class="page-nav__link">Tipuri de rețea</a></li>
+            <li><a href="#5" data-slide="4" class="page-nav__link">Descoperire noduri</a></li>
+            <li><a href="#6" data-slide="5" class="page-nav__link">Tehnic</a></li>
+            <li><a href="#7" data-slide="6" class="page-nav__link">Avantaje</a></li>
+            <li><a href="#8" data-slide="7" class="page-nav__link">Limitări</a></li>
+            <li><a href="#9" data-slide="8" class="page-nav__link">Distanțe</a></li>
           </ul>
         </nav>
       </header>
 
-      <!-- SLIDE 1 -->
-      <section class="slide" id="slide-1">
-        <header class="slide__header">
-          <p class="slide__eyebrow">Fundamente</p>
-          <h2 class="slide__title">Ce este LoRa?</h2>
-        </header>
-
-        <p><strong>LoRa (Long Range)</strong> este o tehnologie radio pentru:</p>
-        <ul>
-          <li>transmisii pe distanțe mari</li>
-          <li>consum foarte redus de energie</li>
-          <li>transfer de date mici</li>
-        </ul>
-
-        <p>Folosește banda:</p>
-        <ul>
-          <li><strong>868 MHz</strong> în Europa (ISM – fără licență)</li>
-        </ul>
-
-        <div class="slide-callout">
-          <p>
-            <span class="bullet">👉</span> Nu este internet.<br>
-            <span class="bullet">👉</span> Nu este GSM.<br>
-            <span class="bullet">👉</span> Este radio digital cu rază mare.
-          </p>
+      <div class="cube-stage">
+        <div class="cube-nav-bar">
+          <button type="button" class="cube-nav-btn cube-nav-btn--prev" aria-label="Slide anterior">
+            <span aria-hidden="true">‹</span>
+          </button>
+          <span class="cube-counter" aria-live="polite"><span id="current-num">1</span> / 9</span>
+          <button type="button" class="cube-nav-btn cube-nav-btn--next" aria-label="Slide următor">
+            <span aria-hidden="true">›</span>
+          </button>
         </div>
 
-        <figure class="slide__figure">
-          <img src="assets/images/lora_slide01_what_is_lora.png" alt="Ce este LoRa">
-        </figure>
-      </section>
-
-      <!-- SLIDE 2 -->
-      <section class="slide" id="slide-2">
-        <header class="slide__header">
-          <p class="slide__eyebrow">Clarificări</p>
-          <h2 class="slide__title">Ce NU este LoRa</h2>
-        </header>
-
-        <p>Important pentru claritate:</p>
-        <ul>
-          <li>Nu este 4G / 5G</li>
-          <li>Nu este WiFi</li>
-          <li>Nu transmite voce sau video</li>
-          <li>Nu este rapid</li>
-        </ul>
-
-        <p>Este optim pentru:</p>
-        <ul>
-          <li>mesaje text</li>
-          <li>coordonate GPS</li>
-          <li>senzori</li>
-          <li>telemetrie</li>
-        </ul>
-
-        <figure class="slide__figure">
-          <img src="assets/images/lora_slide02_not_lora.png" alt="Ce nu este LoRa">
-        </figure>
-      </section>
-
-      <!-- SLIDE 3 -->
-      <section class="slide" id="slide-3">
-        <header class="slide__header">
-          <p class="slide__eyebrow">Arhitectură dispozitiv</p>
-          <h2 class="slide__title">Cum funcționează la nivel simplu</h2>
-        </header>
-
-        <p>Fiecare dispozitiv are:</p>
-        <ul>
-          <li>un modul radio LoRa</li>
-          <li>o antenă</li>
-          <li>un microcontroller</li>
-          <li>eventual GPS</li>
-        </ul>
-
-        <p>Când transmite:</p>
-        <ul>
-          <li>convertește datele în pachet radio</li>
-          <li>trimite semnal pe 868 MHz</li>
-          <li>orice dispozitiv din raza lui poate recepționa</li>
-        </ul>
-
-        <p>Este ca un <strong>„walkie-talkie digital inteligent”</strong>.</p>
-
-        <figure class="slide__figure">
-          <img src="assets/images/lora_slide03_how_it_works.png" alt="Cum funcționează LoRa">
-        </figure>
-      </section>
-
-      <!-- SLIDE 4 -->
-      <section class="slide" id="slide-4">
-        <header class="slide__header">
-          <p class="slide__eyebrow">Topologie</p>
-          <h2 class="slide__title">Tipuri de rețea LoRa</h2>
-        </header>
-
-        <p>Există două modele:</p>
-        <ol>
-          <li><strong>Punct-la-punct</strong> – dispozitivele comunică direct.</li>
-          <li><strong>Mesh (rețea distribuită)</strong> – dispozitivele retransmit mesaje pentru altele. Aici intervine software-ul (ex: Meshtastic), nu tehnologia LoRa în sine.</li>
-        </ol>
-
-        <figure class="slide__figure">
-          <img src="assets/images/lora_slide04_network_types.png" alt="Tipuri de rețea LoRa">
-        </figure>
-      </section>
-
-      <!-- SLIDE 5 -->
-      <section class="slide" id="slide-5">
-        <header class="slide__header">
-          <p class="slide__eyebrow">Comunicare în rețea</p>
-          <h2 class="slide__title">Cum știu dispozitivele unele de altele?</h2>
-        </header>
-
-        <p><strong>LoRa NU are „listă de dispozitive” built-in.</strong></p>
-
-        <p>Mecanismul este acesta:</p>
-        <ol>
-          <li>Fiecare dispozitiv transmite periodic un pachet de tip:
-            <ul>
-              <li>„Hello”</li>
-              <li>ID unic</li>
-              <li>poziție GPS</li>
-              <li>status</li>
-            </ul>
-          </li>
-          <li>Orice dispozitiv care recepționează:
-            <ul>
-              <li>salvează informația</li>
-              <li>o poate retransmite mai departe (dacă este mesh)</li>
-            </ul>
-          </li>
-          <li>Astfel, informația despre noduri se propagă în rețea.</li>
-        </ol>
-
-        <p class="slide-callout">
-          <span class="bullet">👉</span> Dispozitivele „se descoperă” prin <strong>broadcast periodic</strong>.
-        </p>
-
-        <p><strong>Cum comunic cu X pe care îl văd pe hartă?</strong></p>
-        <ol>
-          <li>Fiecare dispozitiv are un ID unic.</li>
-          <li>Când trimit mesaj către X, mesajul conține ID-ul destinației.</li>
-          <li>Toate nodurile îl retransmit.</li>
-          <li>Doar dispozitivul cu acel ID îl procesează, restul îl ignoră.</li>
-        </ol>
-
-        <p>Este similar cu o scrisoare cu adresă: toată lumea o vede, doar destinatarul o citește.</p>
-
-        <figure class="slide__figure">
-          <img src="assets/images/lora_slide05_discovery.png" alt="Descoperire noduri în mesh LoRa">
-        </figure>
-      </section>
-
-      <!-- SLIDE 6 -->
-      <section class="slide" id="slide-6">
-        <header class="slide__header">
-          <p class="slide__eyebrow">Stivă tehnică</p>
-          <h2 class="slide__title">Ce face posibilă această comunicare?</h2>
-        </header>
-
-        <p>Tehnic, se bazează pe:</p>
-        <ul>
-          <li>broadcast radio</li>
-          <li>adresare prin ID unic</li>
-          <li>retransmisie controlată (mesh)</li>
-          <li>criptare AES</li>
-          <li>mecanism anti-duplicate (TTL / hop limit)</li>
-        </ul>
-
-        <p>Fără:</p>
-        <ul>
-          <li>server central</li>
-          <li>operator telecom</li>
-          <li>infrastructură externă</li>
-        </ul>
-
-        <figure class="slide__figure">
-          <img src="assets/images/lora_slide06_tech_stack.png" alt="Ce face posibilă comunicarea LoRa">
-        </figure>
-      </section>
-
-      <!-- SLIDE 7 -->
-      <section class="slide" id="slide-7">
-        <header class="slide__header">
-          <p class="slide__eyebrow">Beneficii business</p>
-          <h2 class="slide__title">Avantaje pentru companie</h2>
-        </header>
-
-        <ul>
-          <li>Independență de infrastructură externă</li>
-          <li>Funcționează în zone fără semnal</li>
-          <li>Costuri mici</li>
-          <li>Consum foarte mic de energie (dispozitivul poate ține zile/săptămâni)</li>
-          <li>Scalabilitate organică (mai multe noduri = acoperire mai mare)</li>
-        </ul>
-
-        <figure class="slide__figure">
-          <img src="assets/images/lora_slide07_business_benefits.png" alt="Beneficii LoRa pentru business">
-        </figure>
-      </section>
-
-      <!-- SLIDE 8 -->
-      <section class="slide" id="slide-8">
-        <header class="slide__header">
-          <p class="slide__eyebrow">Realism &amp; așteptări</p>
-          <h2 class="slide__title">Limitări (ca să fii credibil)</h2>
-        </header>
-
-        <h3 class="slide__subtitle">1. Viteză mică de transfer</h3>
-        <p>LoRa funcționează aproximativ între <strong>0,3 kbps – 50 kbps</strong> și sacrifică viteza pentru distanță și stabilitate.</p>
-        <p>OK pentru:</p>
-        <ul>
-          <li>mesaje text scurte</li>
-          <li>coordonate GPS</li>
-          <li>status senzori</li>
-        </ul>
-        <p>NU este pentru poze, video, fișiere mari sau audio.</p>
-
-        <h3 class="slide__subtitle">2. Nu este potrivit pentru date mari</h3>
-        <p>Dimensiune maximă pachet mică și duty-cycle limitat (~1% în banda ISM). Ideal pentru 50–200 bytes la câteva minute.</p>
-
-        <h3 class="slide__subtitle">3. Depinde de teren și obstacole</h3>
-        <ul>
-          <li>Urban: 1–3 km între blocuri</li>
-          <li>Rural: 10–20 km în câmp deschis</li>
-          <li>Deal–deal: 30+ km cu vizibilitate directă</li>
-        </ul>
-
-        <h3 class="slide__subtitle">4. Necesită planificare pentru acoperire optimă</h3>
-        <p>Noduri plasate sus, antene bune, repeatere mesh pentru a evita zonele moarte.</p>
-
-        <figure class="slide__figure">
-          <img src="assets/images/lora_slide08_limitations.png" alt="Limitări LoRa">
-        </figure>
-      </section>
+        <div class="cube-container">
+          <div class="cube-wrapper" id="cube-wrapper">
+            <!-- Face 0 -->
+            <div class="cube-face" data-face="0">
+              <div class="slide">
+                <header class="slide__header">
+                  <p class="slide__eyebrow">Fundamente</p>
+                  <h2 class="slide__title">Ce este LoRa?</h2>
+                </header>
+                <p><strong>LoRa (Long Range)</strong> este o tehnologie radio pentru:</p>
+                <ul>
+                  <li>transmisii pe distanțe mari</li>
+                  <li>consum foarte redus de energie</li>
+                  <li>transfer de date mici</li>
+                </ul>
+                <p>Folosește banda:</p>
+                <ul>
+                  <li><strong>868 MHz</strong> în Europa (ISM – fără licență)</li>
+                </ul>
+                <div class="slide-callout">
+                  <p>
+                    <span class="bullet">👉</span> Nu este internet.<br>
+                    <span class="bullet">👉</span> Nu este GSM.<br>
+                    <span class="bullet">👉</span> Este radio digital cu rază mare.
+                  </p>
+                </div>
+                <figure class="slide__figure">
+                  <img src="assets/images/lora_slide01_what_is_lora.png" alt="Ce este LoRa">
+                </figure>
+              </div>
+            </div>
+            <!-- Face 1 -->
+            <div class="cube-face" data-face="1">
+              <div class="slide">
+                <header class="slide__header">
+                  <p class="slide__eyebrow">Clarificări</p>
+                  <h2 class="slide__title">Ce NU este LoRa</h2>
+                </header>
+                <p>Important pentru claritate:</p>
+                <ul>
+                  <li>Nu este 4G / 5G</li>
+                  <li>Nu este WiFi</li>
+                  <li>Nu transmite voce sau video</li>
+                  <li>Nu este rapid</li>
+                </ul>
+                <p>Este optim pentru:</p>
+                <ul>
+                  <li>mesaje text</li>
+                  <li>coordonate GPS</li>
+                  <li>senzori</li>
+                  <li>telemetrie</li>
+                </ul>
+                <figure class="slide__figure">
+                  <img src="assets/images/lora_slide02_not_lora.png" alt="Ce nu este LoRa">
+                </figure>
+              </div>
+            </div>
+            <!-- Face 2 -->
+            <div class="cube-face" data-face="2">
+              <div class="slide">
+                <header class="slide__header">
+                  <p class="slide__eyebrow">Arhitectură dispozitiv</p>
+                  <h2 class="slide__title">Cum funcționează la nivel simplu</h2>
+                </header>
+                <p>Fiecare dispozitiv are:</p>
+                <ul>
+                  <li>un modul radio LoRa</li>
+                  <li>o antenă</li>
+                  <li>un microcontroller</li>
+                  <li>eventual GPS</li>
+                </ul>
+                <p>Când transmite:</p>
+                <ul>
+                  <li>convertește datele în pachet radio</li>
+                  <li>trimite semnal pe 868 MHz</li>
+                  <li>orice dispozitiv din raza lui poate recepționa</li>
+                </ul>
+                <p>Este ca un <strong>„walkie-talkie digital inteligent”</strong>.</p>
+                <figure class="slide__figure">
+                  <img src="assets/images/lora_slide03_how_it_works.png" alt="Cum funcționează LoRa">
+                </figure>
+              </div>
+            </div>
+            <!-- Face 3 -->
+            <div class="cube-face" data-face="3">
+              <div class="slide">
+                <header class="slide__header">
+                  <p class="slide__eyebrow">Topologie</p>
+                  <h2 class="slide__title">Tipuri de rețea LoRa</h2>
+                </header>
+                <p>Există două modele:</p>
+                <ol>
+                  <li><strong>Punct-la-punct</strong> – dispozitivele comunică direct.</li>
+                  <li><strong>Mesh (rețea distribuită)</strong> – dispozitivele retransmit mesaje pentru altele. Aici intervine software-ul (ex: Meshtastic), nu tehnologia LoRa în sine.</li>
+                </ol>
+                <figure class="slide__figure">
+                  <img src="assets/images/lora_slide04_network_types.png" alt="Tipuri de rețea LoRa">
+                </figure>
+              </div>
+            </div>
+            <!-- Face 4 -->
+            <div class="cube-face" data-face="4">
+              <div class="slide">
+                <header class="slide__header">
+                  <p class="slide__eyebrow">Comunicare în rețea</p>
+                  <h2 class="slide__title">Cum știu dispozitivele unele de altele?</h2>
+                </header>
+                <p><strong>LoRa NU are „listă de dispozitive” built-in.</strong></p>
+                <p>Mecanismul este acesta:</p>
+                <ol>
+                  <li>Fiecare dispozitiv transmite periodic un pachet de tip:
+                    <ul>
+                      <li>„Hello”</li>
+                      <li>ID unic</li>
+                      <li>poziție GPS</li>
+                      <li>status</li>
+                    </ul>
+                  </li>
+                  <li>Orice dispozitiv care recepționează:
+                    <ul>
+                      <li>salvează informația</li>
+                      <li>o poate retransmite mai departe (dacă este mesh)</li>
+                    </ul>
+                  </li>
+                  <li>Astfel, informația despre noduri se propagă în rețea.</li>
+                </ol>
+                <p class="slide-callout">
+                  <span class="bullet">👉</span> Dispozitivele „se descoperă” prin <strong>broadcast periodic</strong>.
+                </p>
+                <p><strong>Cum comunic cu X pe care îl văd pe hartă?</strong></p>
+                <ol>
+                  <li>Fiecare dispozitiv are un ID unic.</li>
+                  <li>Când trimit mesaj către X, mesajul conține ID-ul destinației.</li>
+                  <li>Toate nodurile îl retransmit.</li>
+                  <li>Doar dispozitivul cu acel ID îl procesează, restul îl ignoră.</li>
+                </ol>
+                <p>Este similar cu o scrisoare cu adresă: toată lumea o vede, doar destinatarul o citește.</p>
+                <figure class="slide__figure">
+                  <img src="assets/images/lora_slide05_discovery.png" alt="Descoperire noduri în mesh LoRa">
+                </figure>
+              </div>
+            </div>
+            <!-- Face 5 -->
+            <div class="cube-face" data-face="5">
+              <div class="slide">
+                <header class="slide__header">
+                  <p class="slide__eyebrow">Stivă tehnică</p>
+                  <h2 class="slide__title">Ce face posibilă această comunicare?</h2>
+                </header>
+                <p>Tehnic, se bazează pe:</p>
+                <ul>
+                  <li>broadcast radio</li>
+                  <li>adresare prin ID unic</li>
+                  <li>retransmisie controlată (mesh)</li>
+                  <li>criptare AES</li>
+                  <li>mecanism anti-duplicate (TTL / hop limit)</li>
+                </ul>
+                <p>Fără:</p>
+                <ul>
+                  <li>server central</li>
+                  <li>operator telecom</li>
+                  <li>infrastructură externă</li>
+                </ul>
+                <figure class="slide__figure">
+                  <img src="assets/images/lora_slide06_tech_stack.png" alt="Ce face posibilă comunicarea LoRa">
+                </figure>
+              </div>
+            </div>
+            <!-- Face 6 -->
+            <div class="cube-face" data-face="6">
+              <div class="slide">
+                <header class="slide__header">
+                  <p class="slide__eyebrow">Beneficii business</p>
+                  <h2 class="slide__title">Avantaje pentru companie</h2>
+                </header>
+                <ul>
+                  <li>Independență de infrastructură externă</li>
+                  <li>Funcționează în zone fără semnal</li>
+                  <li>Costuri mici</li>
+                  <li>Consum foarte mic de energie (dispozitivul poate ține zile/săptămâni)</li>
+                  <li>Scalabilitate organică (mai multe noduri = acoperire mai mare)</li>
+                </ul>
+                <figure class="slide__figure">
+                  <img src="assets/images/lora_slide07_business_benefits.png" alt="Beneficii LoRa pentru business">
+                </figure>
+              </div>
+            </div>
+            <!-- Face 7 -->
+            <div class="cube-face" data-face="7">
+              <div class="slide">
+                <header class="slide__header">
+                  <p class="slide__eyebrow">Realism &amp; așteptări</p>
+                  <h2 class="slide__title">Limitări (ca să fii credibil)</h2>
+                </header>
+                <h3 class="slide__subtitle">1. Viteză mică de transfer</h3>
+                <p>LoRa funcționează aproximativ între <strong>0,3 kbps – 50 kbps</strong> și sacrifică viteza pentru distanță și stabilitate.</p>
+                <p>OK pentru:</p>
+                <ul>
+                  <li>mesaje text scurte</li>
+                  <li>coordonate GPS</li>
+                  <li>status senzori</li>
+                </ul>
+                <p>NU este pentru poze, video, fișiere mari sau audio.</p>
+                <h3 class="slide__subtitle">2. Nu este potrivit pentru date mari</h3>
+                <p>Dimensiune maximă pachet mică și duty-cycle limitat (~1% în banda ISM). Ideal pentru 50–200 bytes la câteva minute.</p>
+                <h3 class="slide__subtitle">3. Depinde de teren și obstacole</h3>
+                <ul>
+                  <li>Urban: 1–3 km între blocuri</li>
+                  <li>Rural: 10–20 km în câmp deschis</li>
+                  <li>Deal–deal: 30+ km cu vizibilitate directă</li>
+                </ul>
+                <h3 class="slide__subtitle">4. Necesită planificare pentru acoperire optimă</h3>
+                <p>Noduri plasate sus, antene bune, repeatere mesh pentru a evita zonele moarte.</p>
+                <figure class="slide__figure">
+                  <img src="assets/images/lora_slide08_limitations.png" alt="Limitări LoRa">
+                </figure>
+              </div>
+            </div>
+            <!-- Face 8: Distanțe -->
+            <div class="cube-face" data-face="8">
+              <div class="slide">
+                <header class="slide__header">
+                  <p class="slide__eyebrow">Acoperire</p>
+                  <h2 class="slide__title">Distanțe de comunicare LoRa</h2>
+                </header>
+                <p>Distanțele practice depind de putere, antenă, teren și obstacole. Valorile de mai jos sunt orientative.</p>
+                <ul>
+                  <li><strong>Teste controlate</strong> (câmp deschis, vizibilitate directă, condiții bune): <strong>15–40 km</strong> și chiar mai mult cu setup dedicat.</li>
+                  <li><strong>În oraș</strong> (blocuri, clădiri, zgomot radio): <strong>1–3 km</strong> între noduri; de obicei 1–2 km.</li>
+                  <li><strong>La munte / deal</strong> (linie de vedere, noduri ridicate): <strong>10–30 km</strong>; în condiții foarte bune se pot atinge 40+ km.</li>
+                </ul>
+                <div class="slide-callout">
+                  <p>
+                    <span class="bullet">👉</span> Mai multe noduri în mesh măresc acoperirea practică.<br>
+                    <span class="bullet">👉</span> Antene bune și amplasament înalt contează decisiv.
+                  </p>
+                </div>
+                <figure class="slide__figure">
+                  <img src="assets/images/lora_slide09_distante.png" alt="Distanțe de comunicare LoRa: teste controlate, oraș, munte">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <footer class="page-footer">
-        <p>Prezentare LoRa &amp; mesh • creată pentru uz intern</p>
+        <p>Prezentare LoRa &amp; mesh • &copy; <span id="footer-year"></span> <a href="https://vl4d.dev" target="_blank" rel="noopener noreferrer">VLD</a></p>
       </footer>
     </div>
   </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagine mărită" hidden>
+    <button type="button" class="lightbox__close" aria-label="Închide">×</button>
+    <div class="lightbox__backdrop"></div>
+    <img class="lightbox__img" src="" alt="">
+  </div>
+
+  <script src="assets/js/cube.js"></script>
 </body>
 </html>
-
