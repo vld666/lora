@@ -14,7 +14,7 @@
         <h1 class="page-header__title">LoRa &amp; rețele mesh</h1>
         <p class="page-header__subtitle">
           O prezentare scurtă, clară și ușor de urmărit despre ce este LoRa, cum funcționează și
-          de ce este utilă pentru companie.
+          de ce este utilă.
         </p>
         <nav class="page-nav" aria-label="Cuprins">
           <ul class="page-nav__list" id="nav-list">
@@ -27,6 +27,7 @@
             <li><a href="#7" data-slide="6" class="page-nav__link">Avantaje</a></li>
             <li><a href="#8" data-slide="7" class="page-nav__link">Limitări</a></li>
             <li><a href="#9" data-slide="8" class="page-nav__link">Distanțe</a></li>
+            <li><a href="#10" data-slide="9" class="page-nav__link">Meshtastic</a></li>
           </ul>
         </nav>
       </header>
@@ -36,7 +37,7 @@
           <button type="button" class="cube-nav-btn cube-nav-btn--prev" aria-label="Slide anterior">
             <span aria-hidden="true">‹</span>
           </button>
-          <span class="cube-counter" aria-live="polite"><span id="current-num">1</span> / 9</span>
+          <span class="cube-counter" aria-live="polite"><span id="current-num">1</span> / 10</span>
           <button type="button" class="cube-nav-btn cube-nav-btn--next" aria-label="Slide următor">
             <span aria-hidden="true">›</span>
           </button>
@@ -180,7 +181,7 @@
                 </ol>
                 <p>Este similar cu o scrisoare cu adresă: toată lumea o vede, doar destinatarul o citește.</p>
                 <figure class="slide__figure">
-                  <img src="assets/images/lora_slide05_discovery.png" alt="Descoperire noduri în mesh LoRa">
+                  <img src="assets/images/lora_slide05_bucuresti_mesh.png" alt="Noduri pe hartă București și cum comunică între ele">
                 </figure>
               </div>
             </div>
@@ -282,6 +283,34 @@
                 <figure class="slide__figure">
                   <img src="assets/images/lora_slide09_distante.png" alt="Distanțe de comunicare LoRa: teste controlate, oraș, munte">
                 </figure>
+              </div>
+            </div>
+            <!-- Face 9: Meshtastic -->
+            <div class="cube-face" data-face="9">
+              <div class="slide">
+                <header class="slide__header">
+                  <p class="slide__eyebrow">Platformă mesh</p>
+                  <h2 class="slide__title">Meshtastic</h2>
+                </header>
+                <p><strong>Meshtastic</strong> – platformă open-source care transformă dispozitivele LoRa în rețea mesh pentru mesaje text și date GPS. Nu ai nevoie de internet; dispozitivele comunică direct între ele.</p>
+                <h3 class="slide__subtitle">Cum funcționează</h3>
+                <ol>
+                  <li>Fiecare persoană are un dispozitiv LoRa cu Meshtastic instalat.</li>
+                  <li>Dispozitivele formează automat o rețea mesh; mesajele sunt retransmise din nod în nod.</li>
+                  <li>Poți trimite: mesaje text, locație GPS, broadcast către toți, mesaje private. Totul criptat AES.</li>
+                </ol>
+                <h3 class="slide__subtitle">Use case-uri</h3>
+                <ul>
+                  <li><strong>Drumeții / zone montane</strong> – poziție colegi pe hartă, mesaje scurte, beacon automat (ture, airsoft, camping off-grid).</li>
+                  <li><strong>Rețea pentru echipă</strong> – nod fix pe deal/clădire + noduri mobile; hartă live, comunicare fără operator.</li>
+                  <li><strong>Urgență / fallback</strong> – când pică GSM sau internetul, rețeaua LoRa continuă să funcționeze.</li>
+                  <li><strong>Hardware</strong> – integrare cu Raspberry Pi, Arduino, senzori, buton de panică (ex: apeși buton → trimite GPS tuturor).</li>
+                </ul>
+                <h3 class="slide__subtitle">Echipament &amp; cost</h3>
+                <p>Dispozitive populare: LilyGO T-Beam, Heltec LoRa V3, RAK WisBlock; antenă bună face diferența. Cost orientativ: <strong>30–80 € per nod</strong>.</p>
+                <h3 class="slide__subtitle">Rază în România &amp; legalitate</h3>
+                <p>Realist: oraș 1–5 km, rural 5–20 km, deal–deal 30+ km. Nod pe clădire înaltă sau releu pe deal mărește mult acoperirea.</p>
+                <p>Folosește banda <strong>868 MHz (ISM)</strong> – legal fără licență în România, în configurație standard (fără modificări ilegale de putere sau antene amplificate).</p>
               </div>
             </div>
           </div>

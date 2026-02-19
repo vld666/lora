@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var TOTAL = 9;
+  var TOTAL = 10;
   var wrapper = document.getElementById("cube-wrapper");
   var currentNumEl = document.getElementById("current-num");
   var navList = document.getElementById("nav-list");
